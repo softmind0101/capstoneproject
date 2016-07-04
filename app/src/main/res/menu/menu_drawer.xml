@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_patient"
+            android:icon="@drawable/ic_account_patient"
+            android:title="@string/patient" />
+        <item
+            android:id="@+id/nav_doctor"
+            android:icon="@drawable/ic_account_doctor"
+            android:title="@string/doctor" />
+        <item
+            android:id="@+id/nav_administrator"
+            android:icon="@drawable/ic_account_admin"
+            android:title="@string/admin" />
+    </group>
+
+    <item android:title="Personal Properties" >
+        <menu>
+            <item
+                android:id="@+id/nav_view_change_profile"
+                android:icon="@drawable/ic_system_change_picture"
+                android:title="View/Change Profile" />
+            <item
+                android:id="@+id/nav_change_password"
+                android:icon="@drawable/ic_system_change_password"
+                android:title="Change Password" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_system_logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>
