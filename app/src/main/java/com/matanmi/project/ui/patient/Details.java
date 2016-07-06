@@ -1,6 +1,5 @@
 package com.matanmi.project.ui.patient;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,28 +12,36 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.matanmi.project.R;
-import com.matanmi.project.controller.PatientDataAdapter;
+import com.matanmi.project.controller.PatientDetailsDataAdapter;
+import com.matanmi.project.util.SessionManager;
 
 import java.util.ArrayList;
 
-public class Details extends Fragment {
+/*
+ * UI Patient  : Details.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
 
+public class Details extends Fragment {
     View rootView;
     private ArrayList<String> countries;
+    SessionManager session;
 
     public Details() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        session = new SessionManager(getActivity());
+        session.checkLogin();
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.patient_details, container, false);
-
         initViews();
-
         return rootView;
     }
 
@@ -44,13 +51,12 @@ public class Details extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         countries = new ArrayList<>();
-        countries.add("Australia");
-        countries.add("India");
-        countries.add("United States of America");
-        countries.add("Germany");
-        countries.add("Russia");
-        System.out.println("List of Countries Created");
-        RecyclerView.Adapter adapter = new PatientDataAdapter(countries);
+        countries.add("Patient 1");
+        countries.add("Patient 2");
+        countries.add("Patient 3");
+        countries.add("Patient 4");
+        countries.add("Patient 5");
+        RecyclerView.Adapter adapter = new PatientDetailsDataAdapter(countries);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
@@ -83,5 +89,4 @@ public class Details extends Fragment {
             }
         });
     }
-
 }

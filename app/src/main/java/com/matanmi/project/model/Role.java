@@ -11,6 +11,14 @@ import com.matanmi.project.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Model       : Role.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Role extends Activity {
 
     private String id;

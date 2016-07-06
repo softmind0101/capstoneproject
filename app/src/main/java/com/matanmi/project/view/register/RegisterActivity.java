@@ -19,6 +19,14 @@ import com.matanmi.project.util.Utilities;
 import com.matanmi.project.view.MainActivity;
 import com.matanmi.project.view.login.LoginActivity;
 
+/*
+ * View Login  : RegisterActivity.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class RegisterActivity extends AbstractActivity {
     String username, email, mobile, password, verifyPassword;
     String gender, role;
@@ -162,7 +170,7 @@ public class RegisterActivity extends AbstractActivity {
     private void loadSpinnerData() {
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, new Role().getRoleList());
-        // Drop down layout style - list view with radio button
+        // Drop down layout style
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
         roleSpinner.setAdapter(dataAdapter);

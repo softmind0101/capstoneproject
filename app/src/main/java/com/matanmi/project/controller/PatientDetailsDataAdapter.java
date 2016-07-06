@@ -10,22 +10,29 @@ import com.matanmi.project.R;
 
 import java.util.ArrayList;
 
-public class PatientDataAdapter extends RecyclerView.Adapter<PatientDataAdapter.ViewHolder> {
+/*
+ * Controller  : PatientDetailsDataAdapter.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
+public class PatientDetailsDataAdapter extends RecyclerView.Adapter<PatientDetailsDataAdapter.ViewHolder> {
     private ArrayList<String> countries;
 
-
-    public PatientDataAdapter(ArrayList<String> countries) {
+    public PatientDetailsDataAdapter(ArrayList<String> countries) {
         this.countries = countries;
     }
 
     @Override
-    public PatientDataAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public PatientDetailsDataAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.patient_details_card, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PatientDataAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(PatientDetailsDataAdapter.ViewHolder viewHolder, int i) {
 
         viewHolder.txt_patient_country.setText(countries.get(i));
     }
@@ -39,7 +46,6 @@ public class PatientDataAdapter extends RecyclerView.Adapter<PatientDataAdapter.
         private TextView txt_patient_country;
         public ViewHolder(View view) {
             super(view);
-
             txt_patient_country = (TextView)view.findViewById(R.id.txt_patient_country);
         }
     }

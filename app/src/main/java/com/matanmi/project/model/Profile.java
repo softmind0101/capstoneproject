@@ -11,9 +11,17 @@ import com.matanmi.project.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Model       : Profile.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Profile extends Activity {
 
-    private int id;
+    public int id;
     public String name;
     public String email;
     public String mobile;
@@ -220,7 +228,35 @@ public class Profile extends Activity {
             }
             cursor.close();
         } catch (Exception e){
-            profileRecord = null;
+            items = null;
+        }
+        return items;
+    }
+
+    public List<Profile> getPatientProfileRecords() {
+        items = new ArrayList<>();
+        try {
+            cursor = db.rawQuery("SELECT * FROM PROFILE WHERE role = 'P' ORDER BY id", null);
+            while (cursor.moveToNext()) {
+                items.add(new Profile(cursor));
+            }
+            cursor.close();
+        } catch (Exception e){
+            items = null;
+        }
+        return items;
+    }
+
+    public List<Profile> getDoctorProfileRecords() {
+        items = new ArrayList<>();
+        try {
+            cursor = db.rawQuery("SELECT * FROM PROFILE WHERE role = 'D' ORDER BY id", null);
+            while (cursor.moveToNext()) {
+                items.add(new Profile(cursor));
+            }
+            cursor.close();
+        } catch (Exception e){
+            items = null;
         }
         return items;
     }
@@ -234,7 +270,7 @@ public class Profile extends Activity {
             }
             cursor.close();
         } catch (Exception e){
-            profileRecord = null;
+            items = null;
         }
         return items;
     }
@@ -263,7 +299,7 @@ public class Profile extends Activity {
             }
             cursor.close();
         } catch (Exception e){
-            profileRecord = null;
+            items = null;
         }
         return items;
     }

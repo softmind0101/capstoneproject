@@ -40,7 +40,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignBottom="@+id/txt_caption"
                 android:layout_alignParentTop="true"
-                android:onClick="back"/>
+                android:onClick="back" />
 
         </RelativeLayout>
 
@@ -73,6 +73,8 @@
                         <EditText
                             android:id="@+id/entered_username"
                             android:hint="@string/text_username"
+                            android:maxLines="1"
+                            android:singleLine="true"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content" />
                     </android.support.design.widget.TextInputLayout>
@@ -84,6 +86,8 @@
                         <EditText
                             android:id="@+id/entered_email"
                             android:hint="@string/text_email"
+                            android:maxLines="1"
+                            android:singleLine="true"
                             android:layout_width="240dp"
                             android:maxLength="40"
                             android:inputType="textEmailAddress"
@@ -99,6 +103,8 @@
                             android:hint="@string/int_mobile"
                             android:layout_width="240dp"
                             android:maxLength="11"
+                            android:maxLines="1"
+                            android:singleLine="true"
                             android:inputType="number"
                             android:layout_height="wrap_content" />
                     </android.support.design.widget.TextInputLayout>
@@ -116,7 +122,7 @@
                             android:textColor="#8A000000"
                             android:layout_marginLeft="0dp"
                             android:layout_marginRight="10dp"
-                            android:gravity="bottom"/>
+                            android:gravity="bottom" />
                         <Spinner
                             android:id="@+id/gender_spinner"
                             android:layout_width="wrap_content"
@@ -127,7 +133,7 @@
                             android:layout_alignRight="@+id/txt_gender_label"
                             android:textDirection="rtl"
                             android:textAlignment="textEnd"
-                            android:gravity="end"/>
+                            android:gravity="end" />
                     </RelativeLayout>
 
                     <View
@@ -151,7 +157,7 @@
                             android:textColor="#8A000000"
                             android:layout_marginLeft="0dp"
                             android:layout_marginRight="10dp"
-                            android:gravity="bottom"/>
+                            android:gravity="bottom" />
                         <Spinner
                             android:id="@+id/role_spinner"
                             android:layout_width="wrap_content"
@@ -162,7 +168,7 @@
                             android:layout_alignRight="@+id/txt_role_label"
                             android:textDirection="rtl"
                             android:textAlignment="textEnd"
-                            android:gravity="end"/>
+                            android:gravity="end" />
                     </RelativeLayout>
 
                     <View
@@ -204,13 +210,14 @@
                     <Button
                         android:id="@+id/register_button"
                         android:text="@string/register"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/md_white_1000"
-                        android:background="?attr/colorPrimary"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="240dp"
-                        android:layout_height="50dp"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/rounded_red_corners"
+                        android:drawableLeft="@drawable/ic_record_save"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
                         android:layout_marginBottom="10dp" />
 
                 </LinearLayout>

@@ -19,6 +19,14 @@ import com.matanmi.project.util.AlertDialogManager;
 import com.matanmi.project.util.SessionManager;
 import com.matanmi.project.view.MainActivity;
 
+/*
+ * View Login  : LoginActivity.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class LoginActivity extends AbstractActivity {
 
     EditText mobilEmail, password;
@@ -43,8 +51,6 @@ public class LoginActivity extends AbstractActivity {
 
         mobilEmail = (EditText) findViewById(R.id.entered_mobile_email);
         password = (EditText) findViewById(R.id.entered_password);
-
-        //show("User Login Status: " + session.isLoggedIn());
 
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {

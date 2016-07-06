@@ -5,6 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*
+ * Util        : Utilities.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Utilities {
     public static NumberFormat nf = null;
     public static SimpleDateFormat sdf = null;

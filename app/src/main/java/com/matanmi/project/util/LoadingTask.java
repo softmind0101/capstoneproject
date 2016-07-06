@@ -9,6 +9,14 @@ import android.widget.ProgressBar;
 
 import com.matanmi.project.database.DatabaseHelper;
 
+/*
+ * Util        : LoadingTask.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 
     public interface LoadingTaskFinishedListener {
@@ -37,8 +45,6 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
     @Override
     protected Integer doInBackground(String... params) {
         db = dbHelper.getWritableDatabase();
-        dbHelper.loadScripts(db);
-        //Log.i("Tutorial", "Starting task with url: " + params[0]);
         if(resourcesDontAlreadyExist()){
             downloadResources();
         }

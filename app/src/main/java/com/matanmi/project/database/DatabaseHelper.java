@@ -15,6 +15,14 @@ import com.matanmi.project.database.table.Profile;
 import com.matanmi.project.database.table.Role;
 import com.matanmi.project.util.Init;
 
+/*
+ * Database    : DatabaseHelper.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "capstone";
@@ -34,7 +42,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Drop Tables
+        db.execSQL(DROP_TABLE + Category.NAME);
+        db.execSQL(DROP_TABLE + Disease.NAME);
+        db.execSQL(DROP_TABLE + Feedback.NAME);
+        db.execSQL(DROP_TABLE + History.NAME);
+        db.execSQL(DROP_TABLE + Photograph.NAME);
+        db.execSQL(DROP_TABLE + Profile.NAME);
+        db.execSQL(DROP_TABLE + Role.NAME);
 
+        // Create Tables
+        db.execSQL(Category.CREATE_TABLE);
+        db.execSQL(Disease.CREATE_TABLE);
+        db.execSQL(Feedback.CREATE_TABLE);
+        db.execSQL(History.CREATE_TABLE);
+        db.execSQL(Photograph.CREATE_TABLE);
+        db.execSQL(Profile.CREATE_TABLE);
+        db.execSQL(Role.CREATE_TABLE);
+
+        // Insert Data
+        db.execSQL(Profile.INSERT_ADMIN_PROFILE);
+        db.execSQL(Role.INSERT_PATIENT_ROLE);
+        db.execSQL(Role.INSERT_DOCTOR_ROLE);
+        db.execSQL(Role.INSERT_ADMIN_ROLE);
     }
 
     @Override
@@ -74,32 +104,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             // Closing database
             db.close();
         }
-    }
-
-    public void loadScripts(SQLiteDatabase db){
-        // Drop Tables
-        db.execSQL(DROP_TABLE + Category.NAME);
-        db.execSQL(DROP_TABLE + Disease.NAME);
-        db.execSQL(DROP_TABLE + Feedback.NAME);
-        db.execSQL(DROP_TABLE + History.NAME);
-        db.execSQL(DROP_TABLE + Photograph.NAME);
-        db.execSQL(DROP_TABLE + Profile.NAME);
-        db.execSQL(DROP_TABLE + Role.NAME);
-
-        // Create Tables
-        db.execSQL(Category.CREATE_TABLE);
-        db.execSQL(Disease.CREATE_TABLE);
-        db.execSQL(Feedback.CREATE_TABLE);
-        db.execSQL(History.CREATE_TABLE);
-        db.execSQL(Photograph.CREATE_TABLE);
-        db.execSQL(Profile.CREATE_TABLE);
-        db.execSQL(Role.CREATE_TABLE);
-
-        // Insert Data
-        db.execSQL(Profile.INSERT_ADMIN_PROFILE);
-        db.execSQL(Role.INSERT_PATIENT_ROLE);
-        db.execSQL(Role.INSERT_DOCTOR_ROLE);
-        db.execSQL(Role.INSERT_ADMIN_ROLE);
     }
 
     public static void exeSQL(String sql, String ... params){

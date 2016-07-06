@@ -1,5 +1,13 @@
 package com.matanmi.project.database.table;
 
+/*
+ * Table       : Photograph.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Photograph {
 
     public static final String NAME = "photograph";

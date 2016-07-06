@@ -1,5 +1,13 @@
 package com.matanmi.project.database.table;
 
+/*
+ * Table       : History.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class History {
 
     public static final String NAME = "history";

@@ -1,15 +1,765 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".ui.admin.Doctor">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/admin_doctor_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Admin : Doctor"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="5dp" >
+
+        <LinearLayout
+            android:id="@+id/admin_doctor_heading_layout"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".07"
+                android:textColor="#FFF"
+                android:background="#000" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_white_1000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".49"
+                android:gravity="center"
+                android:text="USERNAME"
+                android:textColor="#FFF"
+                android:background="#000"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_white_1000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".14"
+                android:gravity="center"
+                android:text="AGE"
+                android:textColor="#FFF"
+                android:background="#000"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_white_1000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".3"
+                android:gravity="center"
+                android:text="GENDER"
+                android:textColor="#FFF"
+                android:background="#000"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/admin_doctor_card_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/admin_doctor_heading_layout"
+            android:isScrollContainer="false">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/admin_doctor_card_recycler_view"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/list_admin_add_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/add_doctor"
+            android:textColor="?attr/colorPrimary"
+            android:background="@drawable/rounded_red_corners"
+            android:drawableLeft="@drawable/ic_record_add"
+            android:layout_below="@id/admin_doctor_card_scroll_view"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/admin_doctor_add"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:isScrollContainer="false" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center" >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/full_name_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+                        <EditText
+                            android:id="@+id/add_doctor_username"
+                            android:hint="@string/text_username"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/email_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/add_doctor_email"
+                            android:hint="@string/text_email"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_width="240dp"
+                            android:maxLength="40"
+                            android:inputType="textEmailAddress"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/mobile_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/add_doctor_mobile"
+                            android:hint="@string/int_mobile"
+                            android:layout_width="240dp"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/txt_gender_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/gender"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom" />
+                        <Spinner
+                            android:id="@+id/add_doctor_gender_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/txt_gender_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/gender_horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/gender_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/txt_role_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/role"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom" />
+                        <Spinner
+                            android:id="@+id/add_doctor_role_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/txt_role_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/role_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <LinearLayout
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="25dp" />
+
+                        <Button
+                            android:id="@+id/add_admin_register_doctor"
+                            android:text="@string/save"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_save"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".1"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="25dp" />
+
+                        <Button
+                            android:id="@+id/add_admin_list_doctor"
+                            android:text="@string/list"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_list"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="25dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/admin_doctor_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:isScrollContainer="false" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/view_content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="35dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/view_name_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+                        <EditText
+                            android:id="@+id/view_doctor_username"
+                            android:hint="@string/text_username"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:editable="false"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/view_email_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/view_doctor_email"
+                            android:hint="@string/text_email"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:editable="false"
+                            android:layout_width="240dp"
+                            android:maxLength="40"
+                            android:inputType="textEmailAddress"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/view_mobile_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/view_doctor_mobile"
+                            android:hint="@string/int_mobile"
+                            android:layout_width="240dp"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/view_txt_gender_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/gender"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/view_doctor_gender_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/view_txt_gender_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_gender_horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/gender_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/view_txt_role_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/role"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/view_doctor_role_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/view_txt_role_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/role_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="25dp" />
+
+                        <Button
+                            android:id="@+id/view_admin_list_doctor"
+                            android:text="@string/list"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_list"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="25dp" />
+
+                        <Button
+                            android:id="@+id/view_admin_view_doctor"
+                            android:text="@string/view"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/md_white_1000"
+                            android:background="@drawable/rounded_red_circle"
+                            android:drawableLeft="@drawable/ic_record_view"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:enabled="false"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="25dp" />
+
+                        <Button
+                            android:id="@+id/view_admin_edit_doctor"
+                            android:text="@string/edit"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_edit"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="25dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/admin_doctor_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:isScrollContainer="false" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/edit_content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="35dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/edit_name_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+                        <EditText
+                            android:id="@+id/edit_doctor_username"
+                            android:hint="@string/text_username"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/edit_email_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/edit_doctor_email"
+                            android:hint="@string/text_email"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_width="240dp"
+                            android:maxLength="40"
+                            android:inputType="textEmailAddress"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/edit_mobile_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/edit_doctor_mobile"
+                            android:hint="@string/int_mobile"
+                            android:layout_width="240dp"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:layout_height="wrap_content" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/edit_txt_gender_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/gender"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/edit_doctor_gender_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/edit_txt_gender_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/edit_gender_horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/edit_doctor_gender_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <RelativeLayout
+                        android:layout_width="230dp"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/edit_txt_role_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:text="@string/role"
+                            android:textSize="18sp"
+                            android:textColor="#8A000000"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="bottom"/>
+                        <Spinner
+                            android:id="@+id/edit_doctor_role_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:spinnerMode="dropdown"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignRight="@+id/edit_txt_role_label"
+                            android:textDirection="rtl"
+                            android:textAlignment="textEnd"
+                            android:gravity="end" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/edit_horizontal_line"
+                        android:layout_width="240dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/edit_doctor_role_spinner"
+                        android:layout_marginTop="1dp"
+                        android:background="#8A000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp" />
+
+                        <Button
+                            android:id="@+id/edit_admin_list_doctor"
+                            android:text="@string/list"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_list"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp" />
+
+                        <Button
+                            android:id="@+id/edit_admin_view_doctor"
+                            android:text="@string/view"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorPrimary"
+                            android:background="@drawable/rounded_red_corners"
+                            android:drawableLeft="@drawable/ic_record_view"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:enabled="false"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp" />
+
+                        <Button
+                            android:id="@+id/edit_admin_edit_doctor"
+                            android:text="@string/edit"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/md_white_1000"
+                            android:background="@drawable/rounded_red_circle"
+                            android:drawableLeft="@drawable/ic_record_edit"
+                            android:layout_marginTop="25dp"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight=".3"
+                            android:layout_marginBottom="10dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_weight=".05"
+                            android:layout_height="50dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
 </RelativeLayout>

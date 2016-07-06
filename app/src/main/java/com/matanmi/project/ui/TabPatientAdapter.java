@@ -2,14 +2,22 @@ package com.matanmi.project.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.matanmi.project.ui.patient.Details;
 import com.matanmi.project.ui.patient.DiseasePrediction;
-import com.matanmi.project.ui.patient.SearchDoctor;
 import com.matanmi.project.ui.patient.Feedback;
+import com.matanmi.project.ui.patient.SearchDoctor;
 
-public class TabPatientAdapter extends FragmentPagerAdapter {
+/*
+ * UI          : TabPatientAdapter.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
+public class TabPatientAdapter extends FragmentStatePagerAdapter {
 
     int tabCount;
 

@@ -9,6 +9,14 @@ import com.matanmi.project.R;
 import com.matanmi.project.util.LoadingTask;
 import com.matanmi.project.util.LoadingTask.LoadingTaskFinishedListener;
 
+/*
+ * View        : SplashScreen.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class SplashScreen extends Activity implements LoadingTaskFinishedListener {
 
     private Intent intentInstance = null;

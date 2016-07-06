@@ -10,6 +10,14 @@ import com.matanmi.project.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Model       : Disease.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Disease extends com.matanmi.project.database.table.Disease {
 
     public int id;

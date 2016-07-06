@@ -10,6 +10,14 @@ import com.matanmi.project.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Model       : History.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class History extends com.matanmi.project.database.table.History {
 
     public int id;

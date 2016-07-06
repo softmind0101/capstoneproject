@@ -9,6 +9,14 @@ import com.matanmi.project.util.AbstractActivity;
 import com.matanmi.project.view.login.LoginActivity;
 import com.matanmi.project.view.register.RegisterActivity;
 
+/*
+ * View        : MainActivity.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class MainActivity extends AbstractActivity {
     Intent intentInstance = null;
 
@@ -32,6 +40,7 @@ public class MainActivity extends AbstractActivity {
                 break;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

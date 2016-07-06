@@ -2,12 +2,20 @@ package com.matanmi.project.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.matanmi.project.ui.doctor.PreviousDetails;
 import com.matanmi.project.ui.doctor.Details;
+import com.matanmi.project.ui.doctor.PreviousDetails;
 
-public class TabDoctorAdapter extends FragmentPagerAdapter {
+/*
+ * UI          : TabDoctorAdapter.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
+public class TabDoctorAdapter extends FragmentStatePagerAdapter {
 
     int tabCount;
 

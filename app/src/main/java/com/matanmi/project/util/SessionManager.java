@@ -10,6 +10,14 @@ import com.matanmi.project.view.login.LoginActivity;
 
 import java.util.HashMap;
 
+/*
+ * Util        : SessionManager.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class SessionManager {
     // Shared Preferences
     SharedPreferences pref;
@@ -59,22 +67,25 @@ public class SessionManager {
     }
 
     /**
-     * Create login session
+     * Create session
      * */
-    public void createLoginSession(String user, String username, String email, int age, String gender){
-        // Storing login value as TRUE
-        editor.putBoolean(IS_LOGIN, true);
-        // Identify user in pref
-        editor.putString(KEY_USER, user);
-        // Storing name in pref
-        editor.putString(KEY_NAME, username);
-        // Storing email in pref
-        editor.putString(KEY_EMAIL, email);
-        // Storing age in pref
-        editor.putInt(KEY_AGE, age);
-        // Storing gender in pref
-        editor.putString(KEY_GENDER, gender);
+    public void createStringSession(String key, String value){
+        // Storing string with key
+        editor.putString(key, value);
+        // commit changes
+        editor.commit();
+    }
 
+    public void createIntSession(String key, int value){
+        // Storing integer with key
+        editor.putInt(key, value);
+        // commit changes
+        editor.commit();
+    }
+
+    public void createBooleanSession(String key, boolean value){
+        // Storing boolean with key
+        editor.putBoolean(key, value);
         // commit changes
         editor.commit();
     }
@@ -116,6 +127,30 @@ public class SessionManager {
 
         // return user
         return user;
+    }
+
+    public HashMap<String, String> getStringData(String key){
+        HashMap<String, String> data = new HashMap<String, String>();
+        // String data
+        data.put(key, pref.getString(key, null));
+        // return data
+        return data;
+    }
+
+    public HashMap<String, Integer> getIntData(String key){
+        HashMap<String, Integer> data = new HashMap<String, Integer>();
+        // String data
+        data.put(key, pref.getInt(key, 0));
+        // return data
+        return data;
+    }
+
+    public HashMap<String, Boolean> getBooleanData(String key){
+        HashMap<String, Boolean> data = new HashMap<String, Boolean>();
+        // String data
+        data.put(key, pref.getBoolean(key, false));
+        // return data
+        return data;
     }
 
     /**

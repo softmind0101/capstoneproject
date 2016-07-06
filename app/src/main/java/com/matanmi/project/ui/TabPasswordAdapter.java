@@ -2,11 +2,19 @@ package com.matanmi.project.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.matanmi.project.ui.password.Change;
 
-public class TabPasswordAdapter extends FragmentPagerAdapter {
+/*
+ * UI          : TabPasswordAdapter.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
+public class TabPasswordAdapter extends FragmentStatePagerAdapter {
 
     int tabCount;
 

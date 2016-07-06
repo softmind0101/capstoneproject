@@ -1,5 +1,13 @@
 package com.matanmi.project.database.table;
 
+/*
+ * Table       : Profile.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class Profile {
 
     public static final String NAME = "profile";
@@ -43,7 +51,7 @@ public class Profile {
 
     public static final String INSERT_ADMIN_PROFILE = "INSERT INTO " + NAME
             + " (name, email, mobile, age, gender, role, password)"
-            + " VALUES ('Matanmi', 'softmind0101@yahoo.com', '08124748566', '22', 'M', 'A', 'show')";
+            + " VALUES ('Matanmi', 'softmind0101@yahoo.com', '08124748566', '22', 'M', 'A', 'admin')";
 
     public static final String LOGIN_CHECK = "SELECT * FROM " + NAME + " WHERE (" + PROFILE_EMAIL
             + "=? OR " + PROFILE_MOBILE + "=?) AND " + PROFILE_PASSWORD + "=?";

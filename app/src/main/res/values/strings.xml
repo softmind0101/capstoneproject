@@ -36,4 +36,12 @@
     <string name="forgot">Forgot Password ?</string>
     <string name="introduction">The Health Prediction application is an end user support and online consultation project. Here we propose an android application that allows users to get instant guidance on their health issues through an intelligent health care application online. The application is fed with various symptoms and the disease/illness associated with those systems. The application allows user to share their symptoms and issues. It then processes user’s symptoms to check for various illnesses that could be associated with it.</string>
     <string name="role">Role</string>
+    <string name="view_change_profile">View/Change Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="add_doctor">Add Doctor</string>
+    <string name="list">List</string>
+    <string name="submit">Submit</string>
+    <string name="edit">Edit</string>
+    <string name="view">view</string>
+    <string name="save">Save</string>
 </resources>

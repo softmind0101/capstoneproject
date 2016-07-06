@@ -47,58 +47,53 @@
             <ScrollView
                 android:id="@+id/login_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fillViewport="true"
+                android:layout_centerInParent="true"
                 android:layout_below="@+id/login_header"
                 android:isScrollContainer="false">
 
                 <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical" >
 
                     <ImageView
                         android:id="@+id/login_content_logo"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/logo"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="100dp"/>
+                        android:layout_centerHorizontal="true" />
 
-                    <RelativeLayout
-                        android:id="@+id/input_area"
-                        android:layout_centerInParent="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/mobile_email_layout"
                         android:layout_below="@+id/login_content_logo"
-                        android:gravity="center">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/mobile_email_layout"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <EditText
-                                android:id="@+id/entered_mobile_email"
-                                android:layout_width="240dp"
-                                android:layout_height="wrap_content"
-                                android:hint= "@string/mobile_email" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/password"
-                            android:layout_below="@id/mobile_email_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entered_mobile_email"
                             android:layout_width="240dp"
-                            android:layout_height="wrap_content">
-                            <EditText
-                                android:id="@+id/entered_password"
-                                android:hint="@string/password"
-                                style="@style/password" />
-                        </android.support.design.widget.TextInputLayout>
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:hint= "@string/mobile_email" />
+                    </android.support.design.widget.TextInputLayout>
 
-                    </RelativeLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/password_layout"
+                        android:layout_below="@+id/mobile_email_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entered_password"
+                            android:hint="@string/password"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            style="@style/password" />
+                    </android.support.design.widget.TextInputLayout>
 
                     <LinearLayout
                         android:id="@+id/layout_forgot"
@@ -106,17 +101,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="60dp"
-                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
                         android:onClick="forgot"
                         android:orientation="horizontal"
-                        android:layout_below="@id/input_area">
+                        android:layout_below="@+id/password_layout">
 
                         <ImageView
                             android:id="@+id/img_forgot"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/forgot" />
+                            android:src="@drawable/forgot"
+                            android:onClick="forgot"
+                            android:layout_centerHorizontal="true" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -124,6 +120,7 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:layout_marginTop="5dp"
+                            android:onClick="forgot"
                             android:text="@string/forgot"/>
 
                     </LinearLayout>
@@ -131,14 +128,15 @@
                     <Button
                         android:id="@+id/login_button"
                         android:text="@string/login"
-                        android:layout_below="@id/layout_forgot"
+                        android:layout_below="@+id/layout_forgot"
                         android:textSize="25sp"
                         android:textStyle="bold"
-                        android:textColor="@color/md_white_1000"
-                        android:background="?attr/colorPrimary"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/rounded_red_corners"
+                        android:drawableLeft="@drawable/ic_account_lock"
                         android:layout_centerHorizontal="true"
                         android:layout_width="240dp"
-                        android:layout_height="50dp" />
+                        android:layout_height="40dp" />
 
                     <TextView
                         android:id="@+id/tips"

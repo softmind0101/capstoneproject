@@ -6,6 +6,14 @@ import android.content.DialogInterface;
 
 import com.matanmi.project.R;
 
+/*
+ * Util        : AlertDialogManager.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class AlertDialogManager {
     /**
      * Function to display simple Alert Dialog

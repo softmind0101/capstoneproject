@@ -26,11 +26,10 @@
                 android:layout_centerInParent="true">
 
                 <TextView
-                    android:id="@+id/base_text"
+                    android:id="@+id/txt_header_caption"
                     android:layout_width="wrap_content"
                     android:layout_height="?attr/actionBarSize"
                     android:background="?attr/colorPrimaryDark"
-                    android:text="Health Prediction"
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:textColor="#FFF"
@@ -68,6 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/md_black_1000"
+            app:tabIndicatorColor="@color/md_black_1000"
             app:tabGravity="fill"/>
     </android.support.design.widget.AppBarLayout>
 
@@ -75,7 +76,7 @@
         android:id="@+id/patientPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.v4.view.ViewPager

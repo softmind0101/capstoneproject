@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.matanmi.project.ui.TabAdminAdapter;
 import com.matanmi.project.ui.TabDoctorAdapter;
@@ -24,12 +25,21 @@ import com.matanmi.project.util.SessionManager;
 
 import java.util.HashMap;
 
+/*
+ * Base        : BaseActivity.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
 public class BaseActivity extends AbstractActivity implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager session;
     HashMap<String, String> user;
     String profile;
     ImageButton logout;
-    MenuItem navPatient, navDoctor, navAdministrator;
+    TextView headerCaption;
+    MenuItem navPatient, navDoctor, navAdministrator, navChangeProfile, navChangePassword;
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -43,6 +53,7 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        headerCaption = (TextView) findViewById(R.id.txt_header_caption);
         setSupportActionBar(toolbar);
 
         // Session class instance
@@ -74,6 +85,8 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
         navPatient = navigationView.getMenu().findItem(R.id.nav_patient);
         navDoctor = navigationView.getMenu().findItem(R.id.nav_doctor);
         navAdministrator = navigationView.getMenu().findItem(R.id.nav_administrator);
+        navChangeProfile = navigationView.getMenu().findItem(R.id.nav_view_change_profile);
+        navChangePassword = navigationView.getMenu().findItem(R.id.nav_change_password);
 
         patientTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         doctorTabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -93,6 +106,7 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
                 navPatient.setEnabled(true);
                 navDoctor.setEnabled(false);
                 navAdministrator.setEnabled(false);
+                headerCaption.setText(navPatient.getTitle());
                 getPatientPagerLayout(patientTabLayout, patientViewPager);
                 break;
             case "D":
@@ -100,6 +114,7 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
                 navDoctor.setChecked(true);
                 navDoctor.setEnabled(true);
                 navAdministrator.setEnabled(false);
+                headerCaption.setText(navDoctor.getTitle());
                 getDoctorPagerLayout(doctorTabLayout, doctorViewPager);
                 break;
             case "A":
@@ -107,6 +122,7 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
                 navDoctor.setEnabled(false);
                 navAdministrator.setChecked(true);
                 navAdministrator.setEnabled(true);
+                headerCaption.setText(navAdministrator.getTitle());
                 getAdminPagerLayout(adminTabLayout, adminViewPager);
                 break;
         }
@@ -154,22 +170,27 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
             navPatient.setEnabled(true);
             navDoctor.setEnabled(false);
             navAdministrator.setEnabled(false);
+            headerCaption.setText(navPatient.getTitle());
             getPatientPagerLayout(patientTabLayout, patientViewPager);
         } else if (id == R.id.nav_doctor) {
             navPatient.setEnabled(false);
             navDoctor.setChecked(true);
             navDoctor.setEnabled(true);
             navAdministrator.setEnabled(false);
+            headerCaption.setText(navDoctor.getTitle());
             getDoctorPagerLayout(doctorTabLayout, doctorViewPager);
         } else if (id == R.id.nav_administrator) {
             navPatient.setEnabled(false);
             navDoctor.setEnabled(false);
             navAdministrator.setChecked(true);
             navAdministrator.setEnabled(true);
+            headerCaption.setText(navAdministrator.getTitle());
             getAdminPagerLayout(adminTabLayout, adminViewPager);
         } else if (id == R.id.nav_change_password) {
+            headerCaption.setText(navChangePassword.getTitle());
             getPasswordPagerLayout(passwordTabLayout, passwordViewPager);
         } else if (id == R.id.nav_view_change_profile) {
+            headerCaption.setText(navChangeProfile.getTitle());
             getProfilePagerLayout(profileTabLayout, profileViewPager);
         } else if (id == R.id.nav_logout) {
             getLogoutPagerLayout();
@@ -256,6 +277,7 @@ public class BaseActivity extends AbstractActivity implements NavigationView.OnN
         adminAdapter = new TabAdminAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         adminAdapter.notifyDataSetChanged();
         viewPager.setAdapter(adminAdapter);
+        viewPager.setOffscreenPageLimit(3);
         patientViewPager.setVisibility(View.INVISIBLE);
         doctorViewPager.setVisibility(View.INVISIBLE);
         adminViewPager.setVisibility(View.VISIBLE);

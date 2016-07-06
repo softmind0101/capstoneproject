@@ -2,13 +2,21 @@ package com.matanmi.project.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.matanmi.project.ui.profile.ChangePicture;
 import com.matanmi.project.ui.profile.Edit;
 import com.matanmi.project.ui.profile.View;
 
-public class TabProfileAdapter extends FragmentPagerAdapter {
+/*
+ * UI          : TabProfileAdapter.java
+ * Date        : 2016
+ * Version     : 1.00
+ * Author      : Matanmi Falana
+ * Copyright (c) 2016
+ */
+
+public class TabProfileAdapter extends FragmentStatePagerAdapter {
 
     int tabCount;
 
