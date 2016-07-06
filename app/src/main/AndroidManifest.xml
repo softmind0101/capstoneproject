@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.matanmi.capstoneproject"
+    package="com.matanmi.project"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <application
-        android:name=".util.Init"
+        android:name="com.matanmi.project.util.Init"
         android:allowBackup="true"
         android:icon="@drawable/logo_m"
         android:label="@string/app_name"
@@ -18,7 +18,7 @@
 
         <!-- Splash screen -->
         <activity
-            android:name=".view.SplashScreen"
+            android:name="com.matanmi.project.view.SplashScreen"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="unspecified"
@@ -32,11 +32,11 @@
 
         <!-- Main activity -->
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.matanmi.project.view.MainActivity"
             android:label="@string/app_name" />
-        <activity android:name=".view.login.LoginActivity" />
-        <activity android:name=".view.register.RegisterActivity" />
-        <activity android:name=".BaseActivity" />
+        <activity android:name="com.matanmi.project.view.login.LoginActivity" />
+        <activity android:name="com.matanmi.project.view.register.RegisterActivity" />
+        <activity android:name="com.matanmi.project.BaseActivity" />
     </application>
 
 </manifest>
